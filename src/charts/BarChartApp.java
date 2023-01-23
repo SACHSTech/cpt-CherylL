@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 import java.io.*;
  
@@ -24,21 +25,18 @@ public class BarChartApp extends Application {
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
  
-    public void barChart(){
+    public Parent barChart(){
 
       xAxis = new CategoryAxis();
-      xAxis.setLabel("Years");
+      xAxis.setLabel("World Region");
       yAxis = new NumberAxis();
       yAxis.setLabel("Number of Deaths");
 
       BarChart barChart = new BarChart(xAxis, yAxis);
-
+      XYChart.Series dataOne = new XYChart.Series();
+      dataOne.setName("Asia");
 
       return barChart;
-    }
-    public Parent createContent() {
-
-
     }
  
     @Override public void start(Stage primaryStage) throws Exception {
