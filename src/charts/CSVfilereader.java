@@ -38,7 +38,7 @@ public class CSVfilereader {
         String [] data;
 
         for(int i = 0; i < deathCount; i++){
-            
+
             data = deathRecords.get(i).split(deLimiter);
 
             for(int j = 0; j < data.length; j++){
@@ -47,7 +47,7 @@ public class CSVfilereader {
             }
             
         }
-        return csvArray(path, columnNum);
+        return fileArrayReturn;
     }
   
 }
