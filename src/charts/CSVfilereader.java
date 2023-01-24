@@ -38,8 +38,13 @@ public class CSVfilereader {
         String [] data;
 
         for(int i = 0; i < deathCount; i++){
+            
             data = deathRecords.get(i).split(deLimiter);
 
+            for(int j = 0; j < data.length; j++){
+
+                fileArrayReturn[i][j] = data[j];
+            }
             
         }
         return csvArray(path, columnNum);
