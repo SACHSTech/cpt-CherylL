@@ -34,6 +34,14 @@ public class CSVfilereader {
         
         int deathCount = deathRecords.size();
 
+        String fileArrayReturn [][] = new String[deathCount][columnNum];
+        String [] data;
+
+        for(int i = 0; i < deathCount; i++){
+            data = deathRecords.get(i).split(deLimiter);
+
+            
+        }
         return csvArray(path, columnNum);
     }
   
