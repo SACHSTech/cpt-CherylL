@@ -24,14 +24,16 @@ public class CSVfilereader {
         
         String currentLine;
         String deLimiter = ",";
-        List <Integer> deathRecords = new ArrayList<Integer>();
+        List <String> deathRecords = new ArrayList<String>();
         FileReader fr = new FileReader(path);
         BufferedReader reader = new BufferedReader(fr);
 
         while((currentLine = reader.readLine()) != null){
-            
+            deathRecords.add(currentLine);
         }
         
+        int deathCount = deathRecords.size();
+
         return csvArray(path, columnNum);
     }
   
