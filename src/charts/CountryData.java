@@ -34,5 +34,9 @@ abstract class CountryData {
     public double getDeath(){
         return deathsP;
     }
+
+    public void setDeath(double newDeath){
+        deathsP = newDeath;
+    }
    
 }
