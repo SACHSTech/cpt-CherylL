@@ -26,5 +26,10 @@ abstract class CountryData {
     public int getYear(){
         return yearNum;
     }
+
+    public void setYear(int newYear){
+        yearNum = newYear;
+    }
+    
    
 }
