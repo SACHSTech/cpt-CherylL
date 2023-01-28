@@ -22,5 +22,9 @@ abstract class CountryData {
     public void setRegion(String newRegion){
         regionName = newRegion;
     }
+
+    public int getYear(){
+        return yearNum;
+    }
    
 }
