@@ -30,6 +30,9 @@ abstract class CountryData {
     public void setYear(int newYear){
         yearNum = newYear;
     }
-    
+
+    public double getDeath(){
+        return deathsP;
+    }
    
 }
