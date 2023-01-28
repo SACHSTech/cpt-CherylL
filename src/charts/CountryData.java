@@ -7,5 +7,11 @@ abstract class CountryData {
     private String regionName;
     private double deathsP;
 
-    
+    public Region(String aRegion, int aYear, double aDeath){
+        yearNum = aYear;
+        regionName = aRegion;
+        deathsP = aDeath;
+    }
+
+   
 }
