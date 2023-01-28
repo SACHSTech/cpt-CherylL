@@ -58,7 +58,7 @@ public class BarChartApp extends Application {
       );
           
       //display bar chart
-      barChart = new BarChart(xAxis, yAxis, barChartData, 10);
+      barChart = new BarChart(xAxis, yAxis, barChartData, 15);
       barChart.setTitle("Number of deaths in each region by decades");
       return barChart;
      
