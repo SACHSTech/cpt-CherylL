@@ -1,5 +1,7 @@
 package charts;
 
+import java.io.*;
+
 abstract class CountryData {
     
     //variables needed
@@ -13,5 +15,8 @@ abstract class CountryData {
         deathsP = aDeath;
     }
 
+    public String getRegion(){
+        return regionName;
+    }
    
 }
