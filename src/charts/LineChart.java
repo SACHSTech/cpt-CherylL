@@ -1,15 +1,7 @@
 package charts;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-import javafx.stage.Stage;
+
 
  
  
@@ -20,9 +12,18 @@ import javafx.stage.Stage;
  */
 public class LineChart extends Application {
  
-  private BarChart barChart;
-  private CategoryAxis xAxis;
-  private NumberAxis yAxis;
+    ArrayList<String> country = new ArrayList<String>();
+    ArrayList<Double> deathNum = new ArrayList<Double>();
 
+    while()
+   @Override
+   public void start(Stage primaryStage) throws IOException{
+     
+    
 
+   }
+        
+    
 }
+
+
