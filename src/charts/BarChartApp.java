@@ -32,6 +32,35 @@ public class BarChartApp extends Application {
       xAxis = new CategoryAxis();
       xAxis.setCategories(FXCollections.<String>observableArrayList(country));
 
+      ObservableList<BarChart.Series> barChartData =
+      FXCollections.observableArrayList(
+        new BarChart.Series("2000", FXCollections.observableArrayList(
+          new BarChart.Data(country[0], 23974630),
+          new BarChart.Data(country[1], 10614270),
+          new BarChart.Data(country[2], 3172244),
+          new BarChart.Data(country[3], 2608888),
+          new BarChart.Data(country[4], 211796),
+          new BarChart.Data(country[5], 8401888))),  
+        new BarChart.Series("2010",FXCollections.observableArrayList(   
+          new BarChart.Data(country[0], 22349539),
+          new BarChart.Data(country[1], 10652256),
+          new BarChart.Data(country[2], 3694621),
+          new BarChart.Data(country[3], 2710578),
+          new BarChart.Data(country[4], 243110),
+          new BarChart.Data(country[5], 8128387))),
+        new BarChart.Series("2020",FXCollections.observableArrayList(   
+          new BarChart.Data(country[0], 20724448),
+          new BarChart.Data(country[1], 11390416),
+          new BarChart.Data(country[2], 5066101),
+          new BarChart.Data(country[3], 3544380),
+          new BarChart.Data(country[4], 278401),
+          new BarChart.Data(country[5], 9119281)))
+      );
+          
+      //display bar chart
+      barChart = new BarChart(xAxis, yAxis, barChartData, 10);
+      barChart.setTitle("Number of deaths in each region by decades");
+      return barChart;
      
     }
  
