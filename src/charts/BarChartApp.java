@@ -12,10 +12,6 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
  
  
 /**
@@ -29,37 +25,19 @@ public class BarChartApp extends Application {
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
  
-    public void barChart(String args[]) throws IOException{
+    public Parent barChart(){
 
-
-      String path = "C:/Users/Chery/Downloads/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv";
-      String line = "";
-      BufferedReader reader = new BufferedReader(new FileReader(path));
-      ArrayList <String> countries = new ArrayList<String>();
-      ArrayList <Integer> deathNum = new ArrayList<Integer>();
-
-      
-      while((line = reader.readLine()) != null){
-        countries.add(line.substring(0));
-        System.out.println(countries);
-        
-      }
-
-
+      String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
+      yAxis = new NumberAxis("number of deaths", 0, 25000000, 10000000);
       xAxis = new CategoryAxis();
-      xAxis.setLabel("World Region");
-      yAxis = new NumberAxis();
-      yAxis.setLabel("Number of Deaths");
+      xAxis.setCategories(FXCollections.<String>observableArrayList(country));
 
-      BarChart barChart = new BarChart(xAxis, yAxis);
-      XYChart.Series dataOne = new XYChart.Series();
-      dataOne.setName("Asia");
-
-      //return barChart;
+     
     }
  
     @Override public void start(Stage primaryStage) throws Exception {
-        //primaryStage.setScene(new Scene(barChart()));
+      Scene scene  = new Scene(barChart(),850,650);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
  

@@ -8,7 +8,8 @@ import java.util.List;
 
 public class CSVfilereader {
     
-    public static void main(String args[]) throws IOException{
+    ArrayList<CSVfilereader> fileArrayReturn; 
+    void main(String args[]) throws IOException{
 
         String path = "C:/Users/Chery/Downloads/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv";
         String [][] data = csvArray(path, 3);
@@ -20,7 +21,8 @@ public class CSVfilereader {
     
     }
 
-    public static String [][] csvArray(String path, int columnNum) throws IOException{
+
+    public String [][] csvArray(String path, int columnNum) throws IOException{
         
         String currentLine;
         String deLimiter = ",";
@@ -47,6 +49,7 @@ public class CSVfilereader {
             }
             
         }
+        reader.close();
         return fileArrayReturn;
     }
   
