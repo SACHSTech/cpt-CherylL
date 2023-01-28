@@ -1,12 +1,14 @@
 package charts;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVfilereader {
+import javafx.application.Application;
+
+
+public class CSVfilereader{
     
     ArrayList<CSVfilereader> fileArrayReturn; 
     void main(String args[]) throws IOException{
@@ -49,8 +51,9 @@ public class CSVfilereader {
             }
             
         }
-        reader.close();
+
         return fileArrayReturn;
+
     }
-  
+    
 }
