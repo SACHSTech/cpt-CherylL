@@ -25,6 +25,11 @@ public class BarChartApp extends Application {
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
  
+    /*
+     * this creates a graph by placing information from the csv file to the bar chart
+     * the x axis is for the countries
+     * the y axis is for the number of deaths
+     */
     public Parent barChart(){
 
       String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
@@ -68,6 +73,7 @@ public class BarChartApp extends Application {
       Scene scene  = new Scene(barChart(),850,650);
         primaryStage.setScene(scene);
         primaryStage.show();
+        
     }
  
     /**
