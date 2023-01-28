@@ -1,34 +1,4 @@
 Entity,Year,Deaths - Sex: all - Age: all - Variant: estimates
-Asia (UN),1950,31626510
-Asia (UN),1951,31092766
-Asia (UN),1952,30549918
-Asia (UN),1953,30398354
-Asia (UN),1954,30052708
-Asia (UN),1955,30023178
-Asia (UN),1956,29862650
-Asia (UN),1957,30004412
-Asia (UN),1958,29771578
-Asia (UN),1959,34213372
-Asia (UN),1960,37750030
-Asia (UN),1961,32762174
-Asia (UN),1962,28761320
-Asia (UN),1963,29495050
-Asia (UN),1964,29429128
-Asia (UN),1965,30454046
-Asia (UN),1966,29806172
-Asia (UN),1967,29450992
-Asia (UN),1968,29110966
-Asia (UN),1969,29048826
-Asia (UN),1970,29273266
-Asia (UN),1971,30374566
-Asia (UN),1972,28421286
-Asia (UN),1973,28048130
-Asia (UN),1974,27767736
-Asia (UN),1975,27668036
-Asia (UN),1976,27355722
-Asia (UN),1977,26717434
-Asia (UN),1978,26562204
-Asia (UN),1979,26458566
 Asia (UN),1980,27224812.18
 Asia (UN),1981,27062303.08
 Asia (UN),1982,26899793.98
@@ -71,36 +41,6 @@ Asia (UN),2018,21049466.45
 Asia (UN),2019,20886957.35
 Asia (UN),2020,20724448.25
 Asia (UN),2021,20561939.16
-Latin America and the Caribbean (UN),1950,2925484
-Latin America and the Caribbean (UN),1951,2938142
-Latin America and the Caribbean (UN),1952,2925067
-Latin America and the Caribbean (UN),1953,2924775
-Latin America and the Caribbean (UN),1954,2914769
-Latin America and the Caribbean (UN),1955,2920958
-Latin America and the Caribbean (UN),1956,2912713
-Latin America and the Caribbean (UN),1957,2922277
-Latin America and the Caribbean (UN),1958,2912317
-Latin America and the Caribbean (UN),1959,2918863
-Latin America and the Caribbean (UN),1960,2918475
-Latin America and the Caribbean (UN),1961,2917620
-Latin America and the Caribbean (UN),1962,2928345
-Latin America and the Caribbean (UN),1963,2945502
-Latin America and the Caribbean (UN),1964,2945236
-Latin America and the Caribbean (UN),1965,2955451
-Latin America and the Caribbean (UN),1966,2962074
-Latin America and the Caribbean (UN),1967,2969226
-Latin America and the Caribbean (UN),1968,2978028
-Latin America and the Caribbean (UN),1969,2991863
-Latin America and the Caribbean (UN),1970,3053103
-Latin America and the Caribbean (UN),1971,2990200
-Latin America and the Caribbean (UN),1972,3006769
-Latin America and the Caribbean (UN),1973,2995795
-Latin America and the Caribbean (UN),1974,3004211
-Latin America and the Caribbean (UN),1975,2993822
-Latin America and the Caribbean (UN),1976,3038075
-Latin America and the Caribbean (UN),1977,3020116
-Latin America and the Caribbean (UN),1978,3040233
-Latin America and the Caribbean (UN),1979,3063067
 Latin America and the Caribbean (UN),1980,3074936
 Latin America and the Caribbean (UN),1981,3065318
 Latin America and the Caribbean (UN),1982,3080425
@@ -143,36 +83,6 @@ Latin America and the Caribbean (UN),2018,4190846
 Latin America and the Caribbean (UN),2019,4257246
 Latin America and the Caribbean (UN),2020,5066101
 Latin America and the Caribbean (UN),2021,5534706
-Northern America (UN),1950,1551914
-Northern America (UN),1951,1584821
-Northern America (UN),1952,1600065
-Northern America (UN),1953,1617795
-Northern America (UN),1954,1578409
-Northern America (UN),1955,1626378
-Northern America (UN),1956,1664674
-Northern America (UN),1957,1734402
-Northern America (UN),1958,1743261
-Northern America (UN),1959,1761238
-Northern America (UN),1960,1811029
-Northern America (UN),1961,1803051
-Northern America (UN),1962,1859954
-Northern America (UN),1963,1919639
-Northern America (UN),1964,1903538
-Northern America (UN),1965,1934819
-Northern America (UN),1966,1971776
-Northern America (UN),1967,1962477
-Northern America (UN),1968,2042421
-Northern America (UN),1969,2037933
-Northern America (UN),1970,2039147
-Northern America (UN),1971,2042695
-Northern America (UN),1972,2082468
-Northern America (UN),1973,2095236
-Northern America (UN),1974,2062564
-Northern America (UN),1975,2021315
-Northern America (UN),1976,2038122
-Northern America (UN),1977,2028796
-Northern America (UN),1978,2057578
-Northern America (UN),1979,2048416
 Northern America (UN),1980,2125573
 Northern America (UN),1981,2118094
 Northern America (UN),1982,2118371
@@ -215,36 +125,6 @@ Northern America (UN),2018,3064891
 Northern America (UN),2019,3063270
 Northern America (UN),2020,3544380
 Northern America (UN),2021,3579160
-Europe (UN),1950,6473233
-Europe (UN),1951,6609794
-Europe (UN),1952,6265135
-Europe (UN),1953,6220937
-Europe (UN),1954,6072645
-Europe (UN),1955,5987151
-Europe (UN),1956,5899594
-Europe (UN),1957,5963269
-Europe (UN),1958,5647571
-Europe (UN),1959,5816056
-Europe (UN),1960,5783828
-Europe (UN),1961,5749292
-Europe (UN),1962,6023706
-Europe (UN),1963,6031219
-Europe (UN),1964,5843514
-Europe (UN),1965,6058752
-Europe (UN),1966,6074808
-Europe (UN),1967,6204646
-Europe (UN),1968,6427622
-Europe (UN),1969,6652543
-Europe (UN),1970,6602177
-Europe (UN),1971,6675051
-Europe (UN),1972,6699913
-Europe (UN),1973,6814598
-Europe (UN),1974,6818259
-Europe (UN),1975,7009188
-Europe (UN),1976,7085837
-Europe (UN),1977,7039667
-Europe (UN),1978,7183531
-Europe (UN),1979,7268744
 Europe (UN),1980,7422720
 Europe (UN),1981,7404116
 Europe (UN),1982,7373734
@@ -287,36 +167,6 @@ Europe (UN),2018,8112356
 Europe (UN),2019,8020246
 Europe (UN),2020,9119281
 Europe (UN),2021,9656398
-Africa (UN),1950,6062986
-Africa (UN),1951,6132451
-Africa (UN),1952,6154863
-Africa (UN),1953,6188063
-Africa (UN),1954,6233523
-Africa (UN),1955,6257619
-Africa (UN),1956,6311850
-Africa (UN),1957,6490080
-Africa (UN),1958,6555509
-Africa (UN),1959,6458970
-Africa (UN),1960,6552895
-Africa (UN),1961,6612369
-Africa (UN),1962,6669906
-Africa (UN),1963,6723633
-Africa (UN),1964,6773391
-Africa (UN),1965,6887077
-Africa (UN),1966,7054363
-Africa (UN),1967,7156392
-Africa (UN),1968,7210043
-Africa (UN),1969,7328002
-Africa (UN),1970,7384342
-Africa (UN),1971,7423189
-Africa (UN),1972,7572144
-Africa (UN),1973,7547254
-Africa (UN),1974,7657616
-Africa (UN),1975,7723873
-Africa (UN),1976,7709523
-Africa (UN),1977,7763576
-Africa (UN),1978,7841359
-Africa (UN),1979,7901076
 Africa (UN),1980,7986043
 Africa (UN),1981,8055264
 Africa (UN),1982,8146474
@@ -359,36 +209,6 @@ Africa (UN),2018,10763424
 Africa (UN),2019,10840634
 Africa (UN),2020,11390416
 Africa (UN),2021,12038022
-Oceania (UN),1950,148409
-Oceania (UN),1951,156578
-Oceania (UN),1952,151564
-Oceania (UN),1953,149160
-Oceania (UN),1954,150750
-Oceania (UN),1955,150816
-Oceania (UN),1956,155091
-Oceania (UN),1957,154629
-Oceania (UN),1958,152499
-Oceania (UN),1959,158553
-Oceania (UN),1960,157420
-Oceania (UN),1961,158676
-Oceania (UN),1962,163172
-Oceania (UN),1963,164523
-Oceania (UN),1964,170620
-Oceania (UN),1965,169708
-Oceania (UN),1966,174380
-Oceania (UN),1967,171756
-Oceania (UN),1968,178895
-Oceania (UN),1969,175711
-Oceania (UN),1970,182094
-Oceania (UN),1971,178251
-Oceania (UN),1972,179228
-Oceania (UN),1973,179346
-Oceania (UN),1974,183535
-Oceania (UN),1975,176528
-Oceania (UN),1976,180369
-Oceania (UN),1977,176334
-Oceania (UN),1978,175041
-Oceania (UN),1979,173727
 Oceania (UN),1980,176497
 Oceania (UN),1981,176477
 Oceania (UN),1982,181683
@@ -431,36 +251,6 @@ Oceania (UN),2018,271264
 Oceania (UN),2019,280924
 Oceania (UN),2020,278401
 Oceania (UN),2021,289468
-France,1950,533995
-France,1951,566424
-France,1952,525413
-France,1953,558275
-France,1954,519916
-France,1955,527292
-France,1956,546968
-France,1957,532248
-France,1958,500507
-France,1959,508689
-France,1960,520826
-France,1961,499963
-France,1962,538654
-France,1963,553908
-France,1964,515775
-France,1965,539894
-France,1966,525576
-France,1967,540479
-France,1968,551975
-France,1969,571883
-France,1970,541997
-France,1971,554164
-France,1972,549726
-France,1973,558625
-France,1974,552097
-France,1975,560204
-France,1976,557885
-France,1977,536462
-France,1978,547422
-France,1979,542240
 France,1980,547419
 France,1981,555382
 France,1982,543604
