@@ -9,7 +9,7 @@ abstract class CountryData {
     private String regionName;
     private double deathsP;
 
-    public Region(String aRegion, int aYear, double aDeath){
+    public CountryData(String aRegion, int aYear, double aDeath){
         yearNum = aYear;
         regionName = aRegion;
         deathsP = aDeath;
@@ -17,6 +17,10 @@ abstract class CountryData {
 
     public String getRegion(){
         return regionName;
+    }
+
+    public void setRegion(String newRegion){
+        regionName = newRegion;
     }
    
 }
