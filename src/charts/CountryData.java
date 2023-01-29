@@ -1,8 +1,6 @@
 package charts;
 
-import java.io.*;
-
-abstract class CountryData {
+public class CountryData {
     
     //variables needed
     private int yearNum;

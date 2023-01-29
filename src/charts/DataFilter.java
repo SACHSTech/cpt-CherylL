@@ -6,16 +6,25 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
 
 public class DataFilter {
     
     private static ArrayList<CountryData> dataList = new ArrayList<CountryData>();
 
-    public DataInteraction() throws IOException{
+    public DataFilter() throws IOException{
+        String path = "C:/Users/Chery/Downloads/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv";
+        BufferedReader reader = new BufferedReader(new FileReader(path));
+        String currentLine = reader.readLine();
         
 
+        while(currentLine != null){
+            String [] comma = currentLine.split(",");
+            CountryData region = new CountryData((comma[0]), Integer.parseInt(comma[1]), Double.parseDouble(comma[2]));
+            dataList.add(region);
+        }  
 
-
+        reader.close();
     }
 
 
