@@ -18,25 +18,19 @@ public class CountryData {
         return regionName;
     }
 
-    public void setRegion(String newRegion){
-        regionName = newRegion;
-    }
+
 
     public int getYear(){
         return yearNum;
     }
 
-    public void setYear(int newYear){
-        yearNum = newYear;
-    }
+ 
 
     public double getDeath(){
         return deathsP;
     }
 
-    public void setDeath(double newDeath){
-        deathsP = newDeath;
-    }
+
    
     
     public String toString(){

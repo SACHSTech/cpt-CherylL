@@ -22,33 +22,30 @@ import javafx.scene.layout.VBox;
 public class BarGraph extends Application{
 
     //Variables needed
-    private NumberAxis xAxis;
-    private CategoryAxis yAxis;
-    BarChart<Number,String> barChart = new BarChart<Number,String>(xAxis,yAxis);
-    private XYChart.Series<Number, String> series1;
-    private XYChart.Series<Number, Number> series2;
-    private XYChart.Series<Number, Number> series3;
-    private ArrayList<CountryData> yearChoice;
-    ArrayList<CountryData> listYear = new ArrayList<CountryData>();
+    private CategoryAxis xAxis;
+    private NumberAxis yAxis;
+    private BarChart<String, Number> barChart;
+    private XYChart.Series<String, Number> series1;
+    private XYChart.Series<String, Number> series2;
+    private XYChart.Series<String, Number> series3;
+    private ArrayList<CountryData> listYear = new ArrayList<CountryData>();
     
-
     public Parent createContent() throws IOException{
 
         String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
-
-        DataFilter DataInteraction = new DataFilter();
-        
+        DataFilter Datafiles = new DataFilter();
+        //ArrayList<CountryData> listYear = new ArrayList<CountryData>();
         ChoiceBox<String> cb = new ChoiceBox<String>();
 
         cb.getItems().add("2000");
         cb.getItems().add("2010");
         cb.getItems().add("2020");
 
-        listYear = DataInteraction.yearSel(Integer.valueOf(cb.getValue()));
+        listYear = DataFilter.yearSel(Integer.valueOf(cb.getValue()));
 
         FXCollections.<String>observableArrayList(Arrays.asList(country));
-        xAxis = new NumberAxis();
-        yAxis = new CategoryAxis();
+        yAxis = new NumberAxis();
+        xAxis = new CategoryAxis();
         
        
         yAxis.setLabel("Regions");
@@ -58,16 +55,15 @@ public class BarGraph extends Application{
         series1.setName("2000");
 
         for(int i = 0; i < listYear.size(); i++){
-            series1.getData().add(
-            new XYChart.Data<Number, String>(listYear.get(i).getDeath(), (listYear.get(i).getRegion())));
-            
+    
+            series1.getData().add(new XYChart.Data<String, Number>(listYear.get(i).getRegion() ,listYear.get(i).getDeath()));
+            System.out.println(listYear);
         }
 
         barChart.getData().add(series1);
         barChart.setTitle("Number of deaths in each region by decades");
-        barChart = new BarChart(xAxis, yAxis);
         return barChart;
-        
+       
     }
 
     @Override
