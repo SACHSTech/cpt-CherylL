@@ -10,7 +10,7 @@ import java.io.*;
 
 public class DataFilter {
     
-    private static ArrayList<CountryData> dataList = new ArrayList<CountryData>();
+    private ArrayList<CountryData> dataList = new ArrayList<CountryData>();
 
     public DataFilter() throws IOException{
         String path = "C:/Users/Chery/Downloads/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv";
@@ -46,7 +46,10 @@ public class DataFilter {
         ArrayList <CountryData> theList = new ArrayList <CountryData>();
 
         for(int i = 0; i < dataList.size(); i++){
-            if(dataList.get(i).getRegion().equals(year)) theList.add(dataList.get(i));
+            if(dataList.get(i).getYear() == year){
+                theList.add(dataList.get(i));
+            }
+            
         }
 
         return theList;
@@ -54,11 +57,10 @@ public class DataFilter {
 
 
     public double getDecade1(){
-        double startNum = 0;
+        
         for(int i = 0; i < dataList.size(); i++){
             if(dataList.get(i).getYear() == 2000){
-                double totalNum = dataList.get(i).getDeath +=  startNum;
-                return totalNum;
+                return dataList.get(i).getDeath;
             }
         }
         return -1;
