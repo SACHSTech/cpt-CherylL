@@ -1,6 +1,9 @@
 /* ....Show License.... */
 package charts;
  
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -69,9 +72,26 @@ public class BarChartApp extends Application {
    
   }
 
+  public class LineChart extends Application {
+ 
+    ArrayList<String> country = new ArrayList<String>();
+    ArrayList<Double> deathNum = new ArrayList<Double>();
+
+    while()
+   @Override
+   public void start(Stage primaryStage) throws IOException{
+     
+    
+
+   }
+        
+    
+}
+
 
   @Override public void start(Stage primaryStage) throws Exception {
     Scene scene  = new Scene(barChart(),850,650);
+      primaryStage.setScene(scene);
       primaryStage.setScene(scene);
       primaryStage.show();
       

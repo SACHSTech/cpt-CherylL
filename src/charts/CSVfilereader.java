@@ -51,8 +51,11 @@ public class CSVfilereader{
             
         }
         reader.close();
+        
         return fileArrayReturn;
 
     }
+
+    
     
 }
