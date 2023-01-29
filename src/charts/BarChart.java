@@ -11,8 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
+
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.VBox;
 
 public class BarChart extends Application{
 
@@ -23,11 +25,27 @@ public class BarChart extends Application{
     private XYChart.Series<String, Number> series1;
     private XYChart.Series<String, Number> series2;
     private XYChart.Series<String, Number> series3;
+    private ArrayList<CountryData> yearChoice;
+    
 
-    //Checkboxes
-    CheckBox checkBox1 = new CheckBox("2000");
-    CheckBox checkBox2 = new CheckBox("Hindi");
-    CheckBox checkBox3 = new CheckBox("Telugu");
+    public Parent createContent() throws IOException{
+
+        String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
+        CheckBox<String> cb = new CheckBox<String>();
+
+        DataInteraction DataInteraction = new DataInteraction();
+
+        // Testing ArrayList
+        ArrayList<DataReader> listYear = new ArrayList<DataReader>();
+        
+        //Checkboxes
+        CheckBox checkBox1 = new CheckBox("2000");
+        CheckBox checkBox2 = new CheckBox("2010");
+        CheckBox checkBox3 = new CheckBox("2020");
+
+        yearChoice = DataFilter.regionName(String.valueOf(cb.getValue()));
+    }
+    
 
     
 }

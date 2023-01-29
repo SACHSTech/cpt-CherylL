@@ -27,12 +27,15 @@ public class DataFilter {
         reader.close();
     }
 
-    public ArrayList<CountryData> countryName(String country){
+    public ArrayList<CountryData> regionName(String region){
 
         ArrayList <CountryData> newList = new ArrayList <CountryData>();
 
         for(int i = 0; i < dataList.size(); i++){
-            if(dataList.get(i).getRegion().equals(country)) newList.add(dataList.get(i));
+
+            if(dataList.get(i).getRegion().equals(region)){
+                newList.add(dataList.get(i));
+            } 
         }
 
         return newList;
@@ -83,6 +86,7 @@ public class DataFilter {
         return -1;
     }
    
+
     
 
 
