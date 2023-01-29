@@ -38,6 +38,17 @@ public class DataFilter {
         return newList;
     }
 
+    public ArrayList<CountryData> yearSel(int year){
+
+        ArrayList <CountryData> theList = new ArrayList <CountryData>();
+
+        for(int i = 0; i < dataList.size(); i++){
+            if(dataList.get(i).getRegion().equals(year)) theList.add(dataList.get(i));
+        }
+
+        return theList;
+    }
+
 
     public double getDecade1(){
         double startNum = 0;
