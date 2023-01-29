@@ -60,12 +60,14 @@ public class BarGraph extends Application{
         for(int i = 0; i < listYear.size(); i++){
             series1.getData().add(
             new XYChart.Data<Number, String>(listYear.get(i).getDeath(), (listYear.get(i).getRegion())));
-          
+            
         }
 
+        barChart.getData().add(series1);
         barChart.setTitle("Number of deaths in each region by decades");
         barChart = new BarChart(xAxis, yAxis);
         return barChart;
+        
     }
 
     @Override
