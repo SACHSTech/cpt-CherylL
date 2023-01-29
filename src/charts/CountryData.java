@@ -6,6 +6,7 @@ public class CountryData {
     private int yearNum;
     private String regionName;
     private double deathsP;
+    public double getDeath;
 
     public CountryData(String aRegion, int aYear, double aDeath){
         yearNum = aYear;
