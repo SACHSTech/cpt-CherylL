@@ -4,6 +4,8 @@ package charts;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import charts.DataFilter;
+import charts.CountryData;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,9 +26,16 @@ import javafx.stage.Stage;
  */
 public class BarChartApp extends Application {
  
-  private BarChart barChart;
-  private CategoryAxis xAxis;
-  private NumberAxis yAxis;
+  //Variables needed
+  private NumberAxis xAxis;
+  private CategoryAxis yAxis;
+  BarChart<Number,String> barChart = new BarChart<Number,String>(xAxis,yAxis);
+  private XYChart.Series<Number, String> series1;
+  private XYChart.Series<Number, Number> series2;
+  private XYChart.Series<Number, Number> series3;
+  private ArrayList<CountryData> yearChoice;
+  ArrayList<CountryData> listYear = new ArrayList<CountryData>();
+  
 
   /*
    * this creates a graph by placing information from the csv file to the bar chart
@@ -35,71 +44,61 @@ public class BarChartApp extends Application {
    */
   public Parent barChart(){
 
-    String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
-    yAxis = new NumberAxis("number of deaths", 0, 25000000, 10000000);
-    xAxis = new CategoryAxis();
-    xAxis.setCategories(FXCollections.<String>observableArrayList(country));
-
-    ObservableList<BarChart.Series> barChartData =
-    FXCollections.observableArrayList(
-      new BarChart.Series("2000", FXCollections.observableArrayList(
-        new BarChart.Data(country[0], 23974630),
-        new BarChart.Data(country[1], 10614270),
-        new BarChart.Data(country[2], 3172244),
-        new BarChart.Data(country[3], 2608888),
-        new BarChart.Data(country[4], 211796),
-        new BarChart.Data(country[5], 8401888))),  
-      new BarChart.Series("2010",FXCollections.observableArrayList(   
-        new BarChart.Data(country[0], 22349539),
-        new BarChart.Data(country[1], 10652256),
-        new BarChart.Data(country[2], 3694621),
-        new BarChart.Data(country[3], 2710578),
-        new BarChart.Data(country[4], 243110),
-        new BarChart.Data(country[5], 8128387))),
-      new BarChart.Series("2020",FXCollections.observableArrayList(   
-        new BarChart.Data(country[0], 20724448),
-        new BarChart.Data(country[1], 11390416),
-        new BarChart.Data(country[2], 5066101),
-        new BarChart.Data(country[3], 3544380),
-        new BarChart.Data(country[4], 278401),
-        new BarChart.Data(country[5], 9119281)))
-    );
-        
-    //display bar chart
-    barChart = new BarChart(xAxis, yAxis, barChartData, 15);
-    barChart.setTitle("Number of deaths in each region by decades");
-    return barChart;
-   
-  }
-
-  public class LineChart extends Application {
- 
-    ArrayList<String> country = new ArrayList<String>();
-    ArrayList<Double> deathNum = new ArrayList<Double>();
-
-   @Override
-   public void start(Stage primaryStage) throws IOException{
-     
-    
-
-   }
-        
-    
-}
-
-
-  @Override public void start(Stage primaryStage) throws Exception {
-    Scene scene  = new Scene(barChart(),850,650);
-      primaryStage.setScene(scene);
-      primaryStage.setScene(scene);
-      primaryStage.show();
-      
-  }
+  //Variables needed
+  private NumberAxis xAxis;
+  private CategoryAxis yAxis;
+  BarChart<Number,String> barChart = new BarChart<Number,String>(xAxis,yAxis);
+  private XYChart.Series<Number, String> series1;
+  private XYChart.Series<Number, Number> series2;
+  private XYChart.Series<Number, Number> series3;
+  private ArrayList<CountryData> yearChoice;
+  ArrayList<CountryData> listYear = new ArrayList<CountryData>();
   
 
-  /**
-   * Java main for when running without JavaFX launcher
-   */
+  public Parent createContent() throws IOException{
+
+      String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
+
+      DataFilter DataInteraction = new DataFilter();
+      
+      ChoiceBox<String> cb = new ChoiceBox<String>();
+
+      cb.getItems().add("2000");
+      cb.getItems().add("2010");
+      cb.getItems().add("2020");
+
+      listYear = DataInteraction.yearSel(Integer.valueOf(cb.getValue()));
+
+      FXCollections.<String>observableArrayList(Arrays.asList(country));
+      xAxis = new NumberAxis();
+      yAxis = new CategoryAxis();
+      
+     
+      yAxis.setLabel("Regions");
+      xAxis.setLabel("Number of Deaths");
+  
+      series1 = new XYChart.Series<>();
+      series1.setName("2000");
+
+      for(int i = 0; i < listYear.size(); i++){
+          series1.getData().add(
+          new XYChart.Data<Number, String>(listYear.get(i).getDeath(), (listYear.get(i).getRegion())));
+          
+      }
+
+      barChart.getData().add(series1);
+      barChart.setTitle("Number of deaths in each region by decades");
+      barChart = new BarChart(xAxis, yAxis);
+      return barChart;
+      
+  }
+
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+      primaryStage.setScene(new Scene(createContent()));
+      primaryStage.show();
+  }
+
   public static void main(String[] args) {
       launch(args);
   }
