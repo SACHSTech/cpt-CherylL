@@ -2,17 +2,21 @@ package charts;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import charts.DataFilter;
+import charts.CountryData;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 
@@ -20,30 +24,59 @@ public class BarChart extends Application{
 
     //Variables needed
     private BarChart barChart;
-    private CategoryAxis xAxis;
-    private NumberAxis yAxis;
-    private XYChart.Series<String, Number> series1;
-    private XYChart.Series<String, Number> series2;
-    private XYChart.Series<String, Number> series3;
+    BarChart<Number,String> bc = new BarChart<Number,String>(xAxis,yAxis);
+    private NumberAxis xAxis;
+    private CategoryAxis yAxis;
+    private XYChart.Series<Number, String> series1;
+    private XYChart.Series<Number, Number> series2;
+    private XYChart.Series<Number, Number> series3;
     private ArrayList<CountryData> yearChoice;
+    ArrayList<CountryData> listYear = new ArrayList<CountryData>();
     
 
     public Parent createContent() throws IOException{
 
         String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
-        CheckBox<String> cb = new CheckBox<String>();
 
-        DataInteraction DataInteraction = new DataInteraction();
-
-        // Testing ArrayList
-        ArrayList<DataReader> listYear = new ArrayList<DataReader>();
+        DataFilter DataInteraction = new DataFilter();
         
-        //Checkboxes
-        CheckBox checkBox1 = new CheckBox("2000");
-        CheckBox checkBox2 = new CheckBox("2010");
-        CheckBox checkBox3 = new CheckBox("2020");
+        ChoiceBox<String> cb = new ChoiceBox<String>();
 
-        yearChoice = DataFilter.regionName(String.valueOf(cb.getValue()));
+        cb.getItems().add("2000");
+        cb.getItems().add("2010");
+        cb.getItems().add("2020");
+
+        listYear = DataInteraction.yearSel(Integer.valueOf(cb.getValue()));
+
+        FXCollections.<String>observableArrayList(Arrays.asList(country));
+        xAxis = new NumberAxis();
+        yAxis = new CategoryAxis();
+        
+       
+        yAxis.setLabel("Regions");
+        xAxis.setLabel("Number of Deaths");
+    
+        series1 = new XYChart.Series<>();
+        series1.setName("Tuberculosis");
+
+        for(int i = 0; i < listYear.size(); i++){
+            series1.getData().add(
+            new XYChart.Data<Number, String>(listYear.get(i).getDeath(), (listYear.get(i).getRegion())));
+          
+        }
+
+        barChart.setTitle("Number of deaths in each region by decades");
+        barChart = new BarChart<>(xAxis, yAxis);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setScene(new Scene(createContent()));
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
     
 
