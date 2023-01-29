@@ -77,7 +77,6 @@ public class BarChartApp extends Application {
     ArrayList<String> country = new ArrayList<String>();
     ArrayList<Double> deathNum = new ArrayList<Double>();
 
-    while()
    @Override
    public void start(Stage primaryStage) throws IOException{
      

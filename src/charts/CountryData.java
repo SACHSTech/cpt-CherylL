@@ -39,4 +39,8 @@ abstract class CountryData {
         deathsP = newDeath;
     }
    
+    
+    public String toString(){
+        return regionName + ", " + yearNum + ", " + deathsP; 
+    }
 }

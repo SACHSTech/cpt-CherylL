@@ -1,5 +1,8 @@
 package charts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -9,19 +12,29 @@ import javafx.stage.Stage;
 
 public class LineGraph extends Application{
     @Override public void start(Stage stage) {
-        stage.setTitle("Line Chart Sample");
+
+
+        stage.setTitle("Line Graph");
         //defining the axes
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Number of Month");
+        xAxis.setLabel("Years");
+        yAxis.setLabel("number of deaths");
+
+        //
+        //List <Double> deathNum = new ArrayList<Double>(); 
+        //List <Integer> yearNum = new ArrayList<Integer>(); 
+
+
         //creating the chart
         final LineChart<Number,Number> lineChart = 
-                new LineChart<Number,Number>(xAxis,yAxis);
-                
-        lineChart.setTitle("Stock Monitoring, 2010");
-        //defining a series
+        new LineChart<Number,Number>(xAxis,yAxis);
+        
+        lineChart.setTitle("Number of Deaths per Region in the past 5 years");
+        
         XYChart.Series series = new XYChart.Series();
         series.setName("My portfolio");
+
         //populating the series with data
         series.getData().add(new XYChart.Data(1, 23));
         series.getData().add(new XYChart.Data(2, 14));
