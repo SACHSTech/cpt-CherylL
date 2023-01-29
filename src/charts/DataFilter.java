@@ -27,6 +27,17 @@ public class DataFilter {
         reader.close();
     }
 
+    public ArrayList<CountryData> countryName(String country){
+
+        ArrayList <CountryData> newList = new ArrayList <CountryData>();
+
+        for(int i = 0; i < dataList.size(); i++){
+            if(dataList.get(i).getRegion().equals(country)) newList.add(dataList.get(i));
+        }
+
+        return newList;
+    }
+
 
     public double getDecade1(){
         double startNum = 0;
