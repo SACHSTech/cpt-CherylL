@@ -16,17 +16,15 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 
-public class BarChart extends Application{
+public class BarGraph extends Application{
 
     //Variables needed
-    private BarChart barChart;
-    BarChart<Number,String> bc = new BarChart<Number,String>(xAxis,yAxis);
     private NumberAxis xAxis;
     private CategoryAxis yAxis;
+    BarChart<Number,String> barChart = new BarChart<Number,String>(xAxis,yAxis);
     private XYChart.Series<Number, String> series1;
     private XYChart.Series<Number, Number> series2;
     private XYChart.Series<Number, Number> series3;
@@ -57,7 +55,7 @@ public class BarChart extends Application{
         xAxis.setLabel("Number of Deaths");
     
         series1 = new XYChart.Series<>();
-        series1.setName("Tuberculosis");
+        series1.setName("2000");
 
         for(int i = 0; i < listYear.size(); i++){
             series1.getData().add(
@@ -66,7 +64,8 @@ public class BarChart extends Application{
         }
 
         barChart.setTitle("Number of deaths in each region by decades");
-        barChart = new BarChart<>(xAxis, yAxis);
+        barChart = new BarChart(xAxis, yAxis);
+        return barChart;
     }
 
     @Override
