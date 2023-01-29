@@ -9,7 +9,15 @@ import java.util.List;
 
 public class DataFilter {
     
-    
+    private static ArrayList<CountryData> dataList = new ArrayList<CountryData>();
+
+    public DataInteraction() throws IOException{
+        
+
+
+
+    }
+
 
     
 }
