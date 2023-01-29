@@ -28,5 +28,19 @@ public class DataFilter {
     }
 
 
+    public double getDecade1(){
+        double startNum = 0;
+        for(int i = 0; i < dataList.size(); i++){
+            if(dataList.get(i).getYear() == 2000){
+                double totalNum = dataList.get(i).getDeath +=  startNum;
+                return totalNum;
+            }
+        }
+        return -1;
+    }
+
+ 
+
+
     
 }
