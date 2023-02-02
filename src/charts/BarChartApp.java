@@ -87,20 +87,42 @@ public class BarChartApp extends Application {
    
   }  
     
+  private void handleOptions(CheckBox box1, CheckBox box2, CheckBox box3){
+    
+    if(box1.isSelected() == true){ 
+      barChart.getData().add(series1);
+      
+  
+    } else if(box1.isSelected() == false){
+      barChart.getData().remove(series1);
+
+    }
+
+    if(box2.isSelected()) {
+        barChart.getData().add(series2);
+        series2.setName("2010");
+
+    }else if(box2.isSelected() == false){
+      barChart.getData().remove(series2);
+
+    }
+
+    if(box3.isSelected()) {
+        //box3Graph1Option = true;
+      barChart.getData().add(series3);
+      box3.setSelected(true);
+      //box3Graph1Option = true;
+    }
+    else if (box3.isSelected() == false) {
+      barChart.getData().remove(series3);
+      //box3Graph1Option = false;
+    }
+
+
+  }
   
   @Override public void start(Stage primaryStage) throws Exception {
-    Scene scene  = new Scene(barChart(),850,650);
-      CheckBox box1 = new CheckBox("2000");
-      CheckBox box2 = new CheckBox("2010");
-      CheckBox box3 = new CheckBox("2020");
-
-      Button checkButton = new Button("Load");
-      checkButton.setOnAction(e -> handleOptions(box1,box2,box3));
-      VBox layout1 = new VBox(5);
-      layout1.setBackground(new Background(new BackgroundFill(Color.rgb(154, 218, 231),CornerRadii.EMPTY, Insets.EMPTY)));;
-      layout1.setPadding(new Insets(20,20,20,20));
-      layout1.getChildren().addAll(box1, box2, box3, barChart(), checkButton);
-      Scene scene1 = new Scene(layout1, 600, 600);
+ 
       primaryStage.setScene(scene1);
       primaryStage.show();
       
