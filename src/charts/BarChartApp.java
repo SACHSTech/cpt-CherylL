@@ -60,6 +60,16 @@ public class BarChartApp extends Application {
     series1.getData().add(new XYChart.Data(country[4], 211796));
     series1.getData().add(new XYChart.Data(country[5], 8401888));
 
+    //XYChart.Series series2 = new XYChart.Series();
+    series2.setName("2010");
+    series2.getData().add(new XYChart.Data(country[0], 22349539));
+    series2.getData().add(new XYChart.Data(country[1], 10652256));
+    series2.getData().add(new XYChart.Data(country[2], 3694621));
+    series2.getData().add(new XYChart.Data(country[3], 2710578));
+    series2.getData().add(new XYChart.Data(country[4], 243110));
+    series2.getData().add(new XYChart.Data(country[5], 8128387));
+    
+
 
   }
   @Override public void start(Stage primaryStage) throws Exception {
