@@ -5,8 +5,6 @@ import java.io.*;
 
 import java.util.Arrays;
 
-import charts.DataFilter;
-import charts.CountryData;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.scene.Parent;
