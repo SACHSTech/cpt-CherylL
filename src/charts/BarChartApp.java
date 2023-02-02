@@ -78,9 +78,16 @@ public class BarChartApp extends Application {
     series3.getData().add(new XYChart.Data(country[4], 278401));
     series3.getData().add(new XYChart.Data(country[5], 9119281));
     
-
-
-  }
+    barChart = new BarChart(xAxis, yAxis);
+    barChart.getData().add(series1);
+    barChart.getData().add(series2);
+    barChart.getData().add(series3);
+    barChart.setTitle("Number of deaths in each region by decades");
+    return barChart;
+   
+  }  
+    
+  
   @Override public void start(Stage primaryStage) throws Exception {
     Scene scene  = new Scene(barChart(),850,650);
       CheckBox box1 = new CheckBox("2000");
