@@ -69,6 +69,15 @@ public class BarChartApp extends Application {
     series2.getData().add(new XYChart.Data(country[4], 243110));
     series2.getData().add(new XYChart.Data(country[5], 8128387));
     
+        
+    series3.setName("2020");
+    series3.getData().add(new XYChart.Data(country[0], 20724448));
+    series3.getData().add(new XYChart.Data(country[1], 11390416));
+    series3.getData().add(new XYChart.Data(country[2], 5066101));
+    series3.getData().add(new XYChart.Data(country[3], 3544380));
+    series3.getData().add(new XYChart.Data(country[4], 278401));
+    series3.getData().add(new XYChart.Data(country[5], 9119281));
+    
 
 
   }
