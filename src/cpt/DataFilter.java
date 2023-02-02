@@ -14,30 +14,33 @@ public class DataFilter {
 
     public static void main(String[] args) throws IOException{
         //DataFilter dataInteraction = new DataFilter();
-         ArrayList <CountryData> dataList = new ArrayList <CountryData>();
+         //ArrayList <CountryData> dataList = new ArrayList <CountryData>();
          for(int i = 0; i< dataList.size(); i++){
              System.out.println(dataList.get(i).getRegion());
              System.out.println(dataList.get(i).getYear());
              System.out.println(dataList.get(i).getDeath());
-        
+            
         }
-     }
+    }
 
     public DataFilter() throws IOException{
-        BufferedReader key = new BufferedReader(new FileReader("annual-number-of-deaths-by-world-region-annual-number-of-deaths-by-world-region.csv"));
-
+        BufferedReader key = new BufferedReader(new FileReader("/Users/Chery/cpt-CherylL/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv"));
+        
         String str = key.readLine();
 
         while(str != null){
             String[] holder = str.split(",");
-            CountryData country = new CountryData(holder[0], (holder[1]), Double.parseDouble(holder[2]));
-            dataList.add(country);
+            CountryData country = new CountryData((holder[0]), (holder[1]), Double.parseDouble(holder[2]));
+            
+            
             str = key.readLine();
+            System.out.print(dataList);
+            dataList.add(country);
         }
         key.close();
     }
 
-    /*public ArrayList<CountryData> regionName(String region){
+    public ArrayList<CountryData> regionName(String region){
 
         ArrayList <CountryData> newList = new ArrayList <CountryData>();
 
@@ -63,7 +66,7 @@ public class DataFilter {
         }
 
         return theList;
-    }*/
+    }
 
     /**public double getDecade1(){
         
