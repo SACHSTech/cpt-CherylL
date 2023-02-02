@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  */
 public class BarChartApp extends Application {
  
-  private BarChart bc;
+  private BarChart barChart;
   private CategoryAxis xAxis;
   private NumberAxis yAxis;
 
@@ -34,7 +34,7 @@ public class BarChartApp extends Application {
    * the y axis is for the number of deaths
    */
   public Parent barChart(){
-;
+
     String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
     yAxis = new NumberAxis("number of deaths", 0, 25000000, 10000000);
     xAxis = new CategoryAxis();
@@ -66,10 +66,9 @@ public class BarChartApp extends Application {
     );
         
     //display bar chart
-    bc.setTitle("Number of deaths in each region by decades");
-    bc = new BarChart(xAxis,yAxis, barChartData, 15);
-    //System.out.println(barChartData);
-    return bc;
+    barChart = new BarChart(xAxis, yAxis, barChartData, 15);
+    barChart.setTitle("Number of deaths in each region by decades");
+    return barChart;
    
   }  
     
@@ -77,7 +76,8 @@ public class BarChartApp extends Application {
 
 
   @Override public void start(Stage primaryStage) throws Exception {
-      Scene scene  = new Scene(barChart(),850,650);
+    Scene scene  = new Scene(barChart(),850,650);
+      primaryStage.setScene(scene);
       primaryStage.setScene(scene);
       primaryStage.show();
       

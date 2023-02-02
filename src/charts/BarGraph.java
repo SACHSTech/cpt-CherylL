@@ -8,7 +8,6 @@ import cpt.CountryData;
 import cpt.DataFilter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
@@ -19,63 +18,66 @@ import javafx.stage.Stage;
 
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.CheckBox;
 
 public class BarGraph extends Application{
 
     //variables needed
-    private BarChart<String,Number> bc;
-    private CategoryAxis xAxis;
-    private NumberAxis yAxis;
-    private XYChart.Series series1;
-    private XYChart.Series series2;
-    private XYChart.Series series3;
+    private BarChart<Number,String> bc;
+    private CategoryAxis yAxis;
+    private NumberAxis xAxis;
+    private XYChart.Series<Number,String> series1 = new XYChart.Series<>();
+    private XYChart.Series<Number,String> series2 = new XYChart.Series<>();
+    private XYChart.Series<Number,String> series3 = new XYChart.Series<>();
+    
 
     public Parent createGraph() throws IOException {
-       
+        
         String [] region = {"Asia (UN)", "Africa (UN)", "Latin America (UN)", "Northern America and the Caribbean (UN)", "Oceana (UN)", "Europe (UN)"};
+        FXCollections.<String>observableArrayList(Arrays.asList(region));
+
+        
+        bc.setTitle("Number of deaths in each region by decades");
+        
         DataFilter dataFilter = new DataFilter();
-        yAxis = new NumberAxis();
+        xAxis = new NumberAxis();
         yAxis.setLabel("Number of Deaths");
-        xAxis = new CategoryAxis();
-        xAxis.setCategories(FXCollections.<String>observableArrayList(region));
+        yAxis = new CategoryAxis();
         xAxis.setLabel("Regions");
+        bc = new BarChart<>(xAxis, yAxis);
         
 
         ArrayList<CountryData> decade1 = dataFilter.yearSel(2000);
         ArrayList<CountryData> decade2 = dataFilter.yearSel(2010);
         ArrayList<CountryData> decade3 = dataFilter.yearSel(2020);
-       
 
-        FXCollections.<String>observableArrayList(Arrays.asList(region));
-
-        series1 = new XYChart.Series();
+         
         series1.setName("2000");
 
         for(int i = 0; i< decade1.size(); i++){
-            series1.getData().add(new XYChart.Data(decade1.get(i).getRegion(), decade1.get(i).getDeath()));    
-                      
+            series1.getData().add(new XYChart.Data<Number,String>(decade1.get(i).getDeath(), decade1.get(i).getRegion()));    
+                     
         }
         
-        series2 = new XYChart.Series();
+        
         series2.setName("2010");
 
         for(int i = 0; i< decade2.size(); i++){
-            series2.getData().add(new XYChart.Data(decade2.get(i).getRegion(), decade2.get(i).getDeath()));               
+            series2.getData().add(new XYChart.Data<Number,String>(decade2.get(i).getDeath(), decade2.get(i).getRegion()));               
+            
         }
         
-        series3 = new XYChart.Series();
+        
         series3.setName("2010");
 
         for(int i = 0; i< decade2.size(); i++){
-            series3.getData().add(new XYChart.Data(decade3.get(i).getRegion(), decade3.get(i).getDeath()));               
+            series3.getData().add(new XYChart.Data<Number,String>(decade3.get(i).getDeath(), decade3.get(i).getRegion()));               
+            System.out.println(series3);
         }
 
-        bc.getData().addAll(series1, series2, series3);
-        //bc.getData().add(series2);
-        //bc.getData().add(series3);
-        System.out.println(decade2);
-        bc.setTitle("Number of deaths in each region by decades");
-        bc = new BarChart<String,Number>(xAxis,yAxis);
+        bc.getData().add(series1); 
+        bc.getData().add(series3);
+        bc.getData().add(series2);
         return bc;
         
     }   
