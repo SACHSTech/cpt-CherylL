@@ -47,9 +47,9 @@ public class BarGraph extends Application{
         bc = new BarChart<>(xAxis, yAxis);
         
 
-        ArrayList<CountryData> decade1 = dataFilter.yearSel(2000);
-        ArrayList<CountryData> decade2 = dataFilter.yearSel(2010);
-        ArrayList<CountryData> decade3 = dataFilter.yearSel(2020);
+        ArrayList<CountryData> decade1 = dataFilter.yearSel("2000");
+        ArrayList<CountryData> decade2 = dataFilter.yearSel("2010");
+        ArrayList<CountryData> decade3 = dataFilter.yearSel("2020");
 
          
         series1.setName("2000");
