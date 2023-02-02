@@ -122,9 +122,20 @@ public class BarChartApp extends Application {
   }
   
   @Override public void start(Stage primaryStage) throws Exception {
- 
-      primaryStage.setScene(scene1);
-      primaryStage.show();
+    Scene scene  = new Scene(barChart(),850,650);
+    CheckBox box1 = new CheckBox("2000");
+    CheckBox box2 = new CheckBox("2010");
+    CheckBox box3 = new CheckBox("2020");
+
+    Button checkButton = new Button("Load");
+    checkButton.setOnAction(e -> handleOptions(box1,box2,box3));
+    VBox layout1 = new VBox(5);
+    layout1.setBackground(new Background(new BackgroundFill(Color.rgb(154, 218, 231),CornerRadii.EMPTY, Insets.EMPTY)));;
+    layout1.setPadding(new Insets(20,20,20,20));
+    layout1.getChildren().addAll(box1, box2, box3, barChart(), checkButton);
+    Scene scene1 = new Scene(layout1, 600, 600);
+    primaryStage.setScene(scene1);
+    primaryStage.show();
       
   }
   
