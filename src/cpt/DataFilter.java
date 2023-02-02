@@ -12,7 +12,7 @@ public class DataFilter {
 
     private static ArrayList<CountryData> dataList = new ArrayList<CountryData>();
 
-    public static void main(String[] args) throws IOException{
+    /*public static void main(String[] args) throws IOException{
         //DataFilter dataInteraction = new DataFilter();
          for(int i = 0; i< dataList.size(); i++){
              System.out.println(dataList.get(i).getRegion());
@@ -21,30 +21,30 @@ public class DataFilter {
           }
 
 
-     }
+     }*/
 
     public DataFilter() throws IOException{
-        BufferedReader key = new BufferedReader(new FileReader("annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv"));
+        BufferedReader br = new BufferedReader(new FileReader("annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv"));
 
-        String str = key.readLine();
+        String str = br.readLine();
 
         while(str != null){
             String[] holder = str.split(",");
             CountryData country = new CountryData(holder[0], Integer.parseInt(holder[1]), Double.parseDouble(holder[2]));
             dataList.add(country);
-            str = key.readLine();
+            str = br.readLine();
         }
-        key.close();
+        br.close();
     }
 
-    public ArrayList<CountryData> regionName(String newRegion){
+    public ArrayList<String> regionName(String newRegion){
 
-        ArrayList <CountryData> newList = new ArrayList <CountryData>();
+        ArrayList <String> newList = new ArrayList <String>();
 
         for(int i = 0; i < dataList.size(); i++){
 
             if(dataList.get(i).getRegion().equals(newRegion)){
-                newList.add(dataList.get(i));
+                newList.add(dataList.get(i).getRegion());
             } 
         }
 

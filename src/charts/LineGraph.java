@@ -21,10 +21,6 @@ public class LineGraph extends Application{
         xAxis.setLabel("Years");
         yAxis.setLabel("number of deaths");
 
-        //
-        //List <Double> deathNum = new ArrayList<Double>(); 
-        //List <Integer> yearNum = new ArrayList<Integer>(); 
-
 
         //creating the chart
         final LineChart<Number,Number> lineChart = 
