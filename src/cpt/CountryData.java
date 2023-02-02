@@ -3,14 +3,14 @@ package cpt;
 public class CountryData {
     
     //variables needed
-    private String yearNum;
+    private int yearNum;
     private String regionName;
     private double deathsP;
 
-    public CountryData(String aRegion, String aYear, double aDeath){
-        this.yearNum = aYear;
-        this.regionName = aRegion;
-        this.deathsP = aDeath;
+    public CountryData(String aRegion, int aYear, double aDeath){
+        yearNum = aYear;
+        regionName = aRegion;
+        deathsP = aDeath;
     }
 
     public String getRegion(){
@@ -19,7 +19,7 @@ public class CountryData {
 
 
 
-    public String getYear(){
+    public int getYear(){
         return yearNum;
     }
 

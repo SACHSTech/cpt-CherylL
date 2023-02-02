@@ -12,49 +12,49 @@ public class DataFilter {
 
     private static ArrayList<CountryData> dataList = new ArrayList<CountryData>();
 
-    public static void main(String[] args) throws IOException{
-        //DataFilter dataInteraction = new DataFilter();
-         //ArrayList <CountryData> dataList = new ArrayList <CountryData>();
+    /*public static void main(String[] args) throws IOException{
+        DataFilter dataInteraction = new DataFilter();
+         ArrayList <CountryData> dataList = new ArrayList <CountryData>();
          for(int i = 0; i< dataList.size(); i++){
              System.out.println(dataList.get(i).getRegion());
              System.out.println(dataList.get(i).getYear());
              System.out.println(dataList.get(i).getDeath());
             
         }
-    }
+    }*/
 
     public DataFilter() throws IOException{
-        BufferedReader key = new BufferedReader(new FileReader("/Users/Chery/cpt-CherylL/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv"));
+        BufferedReader br = new BufferedReader(new FileReader("src/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv"));
         
-        String str = key.readLine();
+        String str = br.readLine();
 
         while(str != null){
-            String[] holder = str.split(",");
-            CountryData country = new CountryData((holder[0]), (holder[1]), Double.parseDouble(holder[2]));
+           String[] holder = str.split(",");
+           CountryData region = new CountryData((holder[0]), Integer.parseInt(holder[1]), Double.parseDouble(holder[2]));
             
-            
-            str = key.readLine();
-            System.out.print(dataList);
-            dataList.add(country);
+           dataList.add(region);
+            System.out.println(str);
+           str = br.readLine();
         }
-        key.close();
+
+        br.close();
     }
 
-    public ArrayList<CountryData> regionName(String region){
+    public static ArrayList<String> regionName(){
 
-        ArrayList <CountryData> newList = new ArrayList <CountryData>();
+        ArrayList <String> newList = new ArrayList <String>();
 
         for(int i = 0; i < dataList.size(); i++){
 
-            if(dataList.get(i).getRegion().equals(region)){
-                newList.add(dataList.get(i));
-            } 
+            if(dataList.get(i).getRegion().equals(dataList.get(i-1).getRegion()) == false) newList.add(dataList.get(i).getRegion()); 
+                //newList.add(dataList.get(i).getRegion());
+             
         }
 
         return newList;
     }
 
-    public ArrayList<CountryData> yearSel(String year){
+    public ArrayList<CountryData> yearSel(int year){
 
         ArrayList <CountryData> theList = new ArrayList <CountryData>();
 
@@ -62,7 +62,6 @@ public class DataFilter {
             if(dataList.get(i).getYear() == year){
                 theList.add(dataList.get(i));
             }
-            
         }
 
         return theList;
