@@ -3,6 +3,8 @@ package charts;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import cpt.CountryData;
+import cpt.DataFilter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,49 +25,49 @@ import javafx.stage.Stage;
  */
 public class Graph1 extends Application {
  
-  private BarChart barChart;
-  private CategoryAxis xAxis;
-  private NumberAxis yAxis;
+    private BarChart<String, Double> barChart;
+    private CategoryAxis xAxis;
+    private NumberAxis yAxis;
+    private XYChart.Series<String, Double> series1;
+    private XYChart.Series<String, Double> series2;
+    private XYChart.Series<String, Double> series3;
 
   /*
    * this creates a graph by placing information from the csv file to the bar chart
    * the x axis is for the countries
    * the y axis is for the number of deaths
    */
-  public Parent barChart(){
+  public Parent barChart() throws IOException{
 
-    String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
-    yAxis = new NumberAxis("number of deaths", 0, 25000000, 10000000);
-    xAxis = new CategoryAxis();
-    xAxis.setCategories(FXCollections.<String>observableArrayList(country));
+    String[] region = {"Asia (UN)", "Africa (UN)", "Latin America (UN)", "Northern America and the Caribbean (UN)", "Oceana (UN)", "Europe (UN)"};
+    DataFilter DataFilter = new DataFilter();
+    NumberAxis yAxis = new NumberAxis();
+    yAxis.setLabel("Number of Deaths");
+    CategoryAxis xAxis = new CategoryAxis();
+    xAxis.setLabel("Regions");
+    
 
-    ObservableList<BarChart.Series> barChartData =
-    FXCollections.observableArrayList(
-      new BarChart.Series("2000", FXCollections.observableArrayList(
-        new BarChart.Data(country[0], 23974630),
-        new BarChart.Data(country[1], 10614270),
-        new BarChart.Data(country[2], 3172244),
-        new BarChart.Data(country[3], 2608888),
-        new BarChart.Data(country[4], 211796),
-        new BarChart.Data(country[5], 8401888))),  
-      new BarChart.Series("2010",FXCollections.observableArrayList(   
-        new BarChart.Data(country[0], 22349539),
-        new BarChart.Data(country[1], 10652256),
-        new BarChart.Data(country[2], 3694621),
-        new BarChart.Data(country[3], 2710578),
-        new BarChart.Data(country[4], 243110),
-        new BarChart.Data(country[5], 8128387))),
-      new BarChart.Series("2020",FXCollections.observableArrayList(   
-        new BarChart.Data(country[0], 20724448),
-        new BarChart.Data(country[1], 11390416),
-        new BarChart.Data(country[2], 5066101),
-        new BarChart.Data(country[3], 3544380),
-        new BarChart.Data(country[4], 278401),
-        new BarChart.Data(country[5], 9119281)))
-    );
-        
-    //display bar chart
-    barChart = new BarChart(xAxis, yAxis, barChartData, 15);
+    ArrayList<CountryData> decade1 = DataFilter.yearSel(2000);
+    ArrayList<CountryData> decade2 = DataFilter.yearSel(2010);
+    ArrayList<CountryData> decade3 = DataFilter.yearSel(2020);
+   
+
+    FXCollections.<String>observableArrayList(region);
+
+   
+    series1 = new XYChart.Series<>();
+    series1.setName("2000");
+
+    for(int i = 0; i< decade1.size(); i++){
+        series1.getData().add(
+        new XYChart.Data<String, Double>(decade1.get(i).getRegion(), decade1.get(i).getDeath()));    
+        System.out.println(series1);            
+    }
+
+    barChart.setPrefHeight(600);
+    barChart.setPrefWidth(500);
+    System.out.println(decade1);
+    barChart.getData().add(series1);
     barChart.setTitle("Number of deaths in each region by decades");
     return barChart;
    
@@ -75,9 +77,8 @@ public class Graph1 extends Application {
 
 
   @Override public void start(Stage primaryStage) throws Exception {
-    Scene scene  = new Scene(barChart(),850,650);
-      primaryStage.setScene(scene);
-      primaryStage.setScene(scene);
+    // Scene scene  = new Scene(barChart());
+      primaryStage.setScene(new Scene(barChart()));
       primaryStage.show();
       
   }

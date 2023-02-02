@@ -76,8 +76,7 @@ public class BarChartApp extends Application {
 
 
   @Override public void start(Stage primaryStage) throws Exception {
-    Scene scene  = new Scene(barChart(),850,650);
-      primaryStage.setScene(scene);
+      Scene scene  = new Scene(barChart(),850,650);
       primaryStage.setScene(scene);
       primaryStage.show();
       
