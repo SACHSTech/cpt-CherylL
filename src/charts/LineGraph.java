@@ -84,7 +84,58 @@ public class LineGraph extends Application{
         series6Line.getData().add(new XYChart.Data("2021", 9656398));
 
         lineChart.getData().addAll(series1Line, series2Line, series3Line, series4Line, series5Line, series6Line);
+        lineChart.setAnimated(false);
         return lineChart;
+    }
+
+    private void handleOptionsLine(CheckBox box4, CheckBox box5, CheckBox box6, CheckBox box7, CheckBox box8, CheckBox box9) {
+        lineChart.getData().clear();
+        if(box4.isSelected() == true){ 
+            lineChart.getData().add(series1Line);
+            
+        
+        } else if(box4.isSelected() == false){
+                lineChart.getData().remove(series1Line);
+      
+            }
+      
+        if(box5.isSelected()) {
+            lineChart.getData().add(series2Line);
+      
+        }else if(box5.isSelected() == false){
+            lineChart.getData().remove(series2Line);
+       
+          }
+        if(box6.isSelected()) {
+            lineChart.getData().add(series3Line);
+        }
+          else if (box6.isSelected() == false) {
+            lineChart.getData().remove(series3Line);
+          
+        }
+        if(box7.isSelected()) {
+            lineChart.getData().add(series4Line);
+        }
+          else if (box7.isSelected() == false) {
+                lineChart.getData().remove(series4Line);
+          
+            }
+        if(box8.isSelected()) {
+            lineChart.getData().add(series5Line);
+        }
+          else if (box8.isSelected() == false) {
+                lineChart.getData().remove(series5Line);
+          
+            }
+        if(box9.isSelected()) {
+            lineChart.getData().add(series6Line);
+        }
+          else if (box9.isSelected() == false) {
+            lineChart.getData().remove(series6Line);
+          
+        }
+        
+        return;
     }
 
 
@@ -97,47 +148,19 @@ public class LineGraph extends Application{
         CheckBox box9 = new CheckBox("Europe");
         
         Button helpButton = new Button("Refresh");
-        //helpButton.setOnAction(e -> handleOptions(box4,box5,box6, box7,box8,box9));
+        helpButton.setOnAction(e -> handleOptionsLine(box4,box5,box6, box7,box8,box9));
         VBox layout1 = new VBox(20);
         layout1.setPadding(new Insets(20,20,20,20));
         layout1.getChildren().addAll(box4, box5, box6, box7,box8,box9, LineChart(), helpButton);
         Scene scene1 = new Scene(layout1, 600, 600);
-        stage.setTitle("Line Chart Sample");
-        //Scene scene  = new Scene(scene1);       
+        stage.setTitle("Line Chart Sample");       
         
        
         stage.setScene(scene1);
         stage.show();
     }
 
-    /*private Object handleOptions(CheckBox box4, CheckBox box5, CheckBox box6, CheckBox box7, CheckBox box8, CheckBox box9) {
-        if(box4.isSelected() == true){ 
-            lineChart.getData().add(series1);
-            
-        
-          } else if(box1.isSelected() == false){
-            lineChart.getData().remove(series1);
-      
-          }
-      
-          if(box2.isSelected()) {
-              barChart.getData().add(series2);
-      
-          }else if(box2.isSelected() == false){
-            barChart.getData().remove(series2);
-       
-          }
-      
-          if(box3.isSelected()) {
-            barChart.getData().add(series3);
-          }
-          else if (box3.isSelected() == false) {
-            barChart.getData().remove(series3);
-          
-          }*/
-      
-    
-    //}
+   
 
 
     public static void main(String[] args) {
