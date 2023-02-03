@@ -8,6 +8,7 @@ import java.util.Arrays;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
+import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
@@ -18,8 +19,11 @@ import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -251,6 +255,11 @@ public class Main extends Application{
     @Override 
     public void start(Stage primaryStage) throws Exception {
         
+        //tab pane
+        TabPane tabPane = new TabPane();
+        tabPane.setSide(Side.TOP);
+        BorderPane root = new BorderPane();
+
         //barchart checkboxes
         CheckBox box1 = new CheckBox("2000");
         CheckBox box2 = new CheckBox("2010");
@@ -258,13 +267,16 @@ public class Main extends Application{
 
         
         //bargraph tab
+        Tab tab1 = new Tab("Chart #1: Bar Chart");
+        tab1.setClosable(false);
         Button checkButton = new Button("Load");
         checkButton.setOnAction(e -> handleOptions(box1,box2,box3));
         VBox layout1 = new VBox(5);
         layout1.setBackground(new Background(new BackgroundFill(Color.rgb(154, 218, 231),CornerRadii.EMPTY, Insets.EMPTY)));;
         layout1.setPadding(new Insets(20,20,20,20));
         layout1.getChildren().addAll(box1, box2, box3, barChart(), checkButton);
-        Scene scene1 = new Scene(layout1, 600, 600);
+        tab1.setContent(layout1);
+        tabPane.getTabs().add(tab1);
 
         //linechart checkboxes
         CheckBox box4 = new CheckBox("Asia");
@@ -275,16 +287,23 @@ public class Main extends Application{
         CheckBox box9 = new CheckBox("Europe");
             
         //linechart tab
+        Tab tab2 = new Tab("Chart #2: Line Chart");
         Button helpButton = new Button("Refresh");
         helpButton.setOnAction(e -> handleOptionsLine(box4,box5,box6, box7,box8,box9));
         VBox layout2 = new VBox(20);
-        layout1.setPadding(new Insets(20,20,20,20));
-        layout1.getChildren().addAll(box4, box5, box6, box7,box8,box9, LineChart(), helpButton);
+        layout2.setPadding(new Insets(20,20,20,20));
+        layout2.getChildren().addAll(box4, box5, box6, box7,box8,box9, LineChart(), helpButton);
+        tab2.setContent(layout2);
+        tab2.setContent(layout2);
+        tabPane.getTabs().add(tab2);
         Scene scene2 = new Scene(layout1, 600, 600);
 
+        root.setCenter(tabPane);
         //display
         primaryStage.setTitle("Data Visualization CPT - Cheryl Lee"); 
-        primaryStage.setScene(scene1);
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setWidth(1000);
+        primaryStage.setHeight(1000);
         primaryStage.show();
 
     
