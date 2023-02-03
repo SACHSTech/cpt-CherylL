@@ -316,7 +316,7 @@ public class Main extends Application{
    * Java main for when running without JavaFX launcher
    */
   public static void main(String[] args) {
-        System.out.println("Hello! Welcome to the database");   
+        System.out.println("Hello! Welcome to the database.");   
         launch(args);
 
     }
