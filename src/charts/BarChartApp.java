@@ -10,6 +10,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Background;
@@ -31,10 +32,10 @@ public class BarChartApp extends Application {
   private BarChart barChart;
   private CategoryAxis xAxis;
   private NumberAxis yAxis;
-  private boolean box1Graph1Option, box2Graph1Option, box3Graph1Option;
   XYChart.Series series2 = new XYChart.Series();
   XYChart.Series series3 = new XYChart.Series();
   XYChart.Series series1 = new XYChart.Series();
+  
   /*
    * this creates a graph by placing information from the csv file to the bar chart
    * the x axis is for the countries
@@ -51,7 +52,7 @@ public class BarChartApp extends Application {
     yAxis.setLabel("Number of Deaths");
 
 
-
+    //series 1
     series1.setName("2000");
     series1.getData().add(new XYChart.Data(country[0], 23974630));
     series1.getData().add(new XYChart.Data(country[1], 10614270));
@@ -60,7 +61,7 @@ public class BarChartApp extends Application {
     series1.getData().add(new XYChart.Data(country[4], 211796));
     series1.getData().add(new XYChart.Data(country[5], 8401888));
 
-    //XYChart.Series series2 = new XYChart.Series();
+    //series 2
     series2.setName("2010");
     series2.getData().add(new XYChart.Data(country[0], 22349539));
     series2.getData().add(new XYChart.Data(country[1], 10652256));
@@ -69,7 +70,7 @@ public class BarChartApp extends Application {
     series2.getData().add(new XYChart.Data(country[4], 243110));
     series2.getData().add(new XYChart.Data(country[5], 8128387));
     
-        
+    //series 3
     series3.setName("2020");
     series3.getData().add(new XYChart.Data(country[0], 20724448));
     series3.getData().add(new XYChart.Data(country[1], 11390416));
@@ -78,6 +79,7 @@ public class BarChartApp extends Application {
     series3.getData().add(new XYChart.Data(country[4], 278401));
     series3.getData().add(new XYChart.Data(country[5], 9119281));
     
+    //display chart
     barChart = new BarChart(xAxis, yAxis);
     barChart.getData().add(series1);
     barChart.getData().add(series2);
@@ -87,7 +89,16 @@ public class BarChartApp extends Application {
    
   }  
     
-  private void handleOptions(CheckBox box1, CheckBox box2, CheckBox box3){
+  /**
+   * 
+   * @param box1 first checkbox for year 2000
+   * @param box2 second checkbox for year 2010
+   * @param box3 third checkbox for year 2020
+   * @param series32
+   * @param series22
+   * @param series12
+   */
+  private void handleOptions(CheckBox box1, CheckBox box2, CheckBox box3, XYChart.Series series12, XYChart.Series series22, XYChart.Series series32){
     
     if(box1.isSelected() == true){ 
       barChart.getData().add(series1);
@@ -100,35 +111,31 @@ public class BarChartApp extends Application {
 
     if(box2.isSelected()) {
         barChart.getData().add(series2);
-        series2.setName("2010");
 
     }else if(box2.isSelected() == false){
       barChart.getData().remove(series2);
-
+ 
     }
 
     if(box3.isSelected()) {
-        //box3Graph1Option = true;
       barChart.getData().add(series3);
-      box3.setSelected(true);
-      //box3Graph1Option = true;
     }
     else if (box3.isSelected() == false) {
       barChart.getData().remove(series3);
-      //box3Graph1Option = false;
+    
     }
 
-
+    return;
   }
   
+  //display a tab
   @Override public void start(Stage primaryStage) throws Exception {
-    Scene scene  = new Scene(barChart(),850,650);
     CheckBox box1 = new CheckBox("2000");
     CheckBox box2 = new CheckBox("2010");
     CheckBox box3 = new CheckBox("2020");
 
     Button checkButton = new Button("Load");
-    checkButton.setOnAction(e -> handleOptions(box1,box2,box3));
+    checkButton.setOnAction(e -> handleOptions(box1,box2,box3, series1, series2, series3));
     VBox layout1 = new VBox(5);
     layout1.setBackground(new Background(new BackgroundFill(Color.rgb(154, 218, 231),CornerRadii.EMPTY, Insets.EMPTY)));;
     layout1.setPadding(new Insets(20,20,20,20));
@@ -136,6 +143,7 @@ public class BarChartApp extends Application {
     Scene scene1 = new Scene(layout1, 600, 600);
     primaryStage.setScene(scene1);
     primaryStage.show();
+    
       
   }
   
@@ -145,6 +153,7 @@ public class BarChartApp extends Application {
    */
   public static void main(String[] args) {
       launch(args);
+      System.out.println("hello");
   }
     
 }

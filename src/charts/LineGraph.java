@@ -4,123 +4,161 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.Axis;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class LineGraph extends Application{
+/*public class LineGraph extends Application{
     
     private LineChart chart;
-    static boolean PCselectedAsia = false;
-    static boolean PCselectedOceana = false;
-    static boolean PCselectedEurope = false;
-    static boolean PCselectedLatin = false;
-    static boolean PCselectedNorth = false;
-    static boolean PCselectedAfrica = false;
+    private CategoryAxis xAxis;
+    private NumberAxis yAxis;
+    XYChart.Series series2Line = new XYChart.Series();
+    XYChart.Series series3Line = new XYChart.Series();
+    XYChart.Series series1Line = new XYChart.Series();
+    XYChart.Series series6Line = new XYChart.Series();
+    XYChart.Series series5Line = new XYChart.Series();
+    XYChart.Series series4Line = new XYChart.Series();
 
-    
+    public Parent LineChart(){
+        String[] years = {"2017", "2018", "2019", "2020", "2021",};
+        FXCollections.<String>observableArrayList(years);
 
-    @Override public void start(Stage stage) {
-
-
-        stage.setTitle("Line Graph");
-        //defining the axes
-        final NumberAxis xAxis = new NumberAxis();
-        final NumberAxis yAxis = new NumberAxis();
+        final LineChart<Number,Number> chart = 
+        chart.setTitle("Number of Deaths per Region in the past 5 years");
+        xAxis = new CategoryAxis();
+        yAxis = new NumberAxis();
         xAxis.setLabel("Years");
         yAxis.setLabel("number of deaths");
+
+
+
+        series1Line.setName("Oceana");
+        series1Line.getData().add(new XYChart.Data(years[0], 270970));
+        series1Line.getData().add(new XYChart.Data(years[1], 271264));
+        series1Line.getData().add(new XYChart.Data(years[2], 280924));
+        series1Line.getData().add(new XYChart.Data(years[3], 278401));
+        series1Line.getData().add(new XYChart.Data(years[4], 289468)); 
+
+   
+        series2Line.setName("Oceana");
+        series2Line.getData().add(new XYChart.Data(years[0], 270970));
+        series2Line.getData().add(new XYChart.Data(years[1], 271264));
+        series2Line.getData().add(new XYChart.Data(years[2], 280924));
+        series2Line.getData().add(new XYChart.Data(years[3], 278401));
+        series2Line.getData().add(new XYChart.Data(years[4], 289468));
+
+
+        series3Line.setName("Oceana");
+        series3Line.getData().add(new XYChart.Data(years[0], 270970));
+        series3Line.getData().add(new XYChart.Data(years[1], 271264));
+        series3Line.getData().add(new XYChart.Data(years[2], 280924));
+        series3Line.getData().add(new XYChart.Data(years[3], 278401));
+        series3Line.getData().add(new XYChart.Data(years[4], 289468));
+
+
+        series4Line.setName("Latin America and the Caribbean (UN)");
+        series4Line.getData().add(new XYChart.Data(years[0], 270970));
+        series4Line.getData().add(new XYChart.Data(years[1], 271264));
+        series4Line.getData().add(new XYChart.Data(years[2], 280924));
+        series4Line.getData().add(new XYChart.Data(years[3], 278401));
+        series4Line.getData().add(new XYChart.Data(years[4], 289468));
+
+
+        series5Line.setName("Latin America and the Caribbean (UN)");
+        series5Line.getData().add(new XYChart.Data(years[0], 270970));
+        series5Line.getData().add(new XYChart.Data(years[1], 271264));
+        series5Line.getData().add(new XYChart.Data(years[2], 280924));
+        series5Line.getData().add(new XYChart.Data(years[3], 278401));
+        series5Line.getData().add(new XYChart.Data(years[4], 289468));
+
+
+        series6Line.setName("Latin America and the Caribbean (UN)");
+        series6Line.getData().add(new XYChart.Data(years[0], 270970));
+        series6Line.getData().add(new XYChart.Data(years[1], 271264));
+        series6Line.getData().add(new XYChart.Data(years[2], 280924));
+        series6Line.getData().add(new XYChart.Data(years[3], 278401));
+        series6Line.getData().add(new XYChart.Data(years[4], 289468));
+
+        chart = new LineChart(xAxis,yAxis);
+        chart.getData().add(series6Line);
+        return chart;
+    }*/
+
+
+    @Override public void start(Stage stage) throws Exception{
+
+        stage.setTitle("Line Chart Sample");
+        final CategoryAxis xAxis = new CategoryAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("Month");
+        final LineChart<String,Number> lineChart = 
+        new LineChart<String,Number>(xAxis,yAxis);
        
-        /*public static ObservableList<LineChart.Data> generateData(){
-
-            if(PCselectedAsia = true){
-                final LineChart<Number,Number> lineChart = 
-                new LineChart<Number,Number>(xAxis,yAxis);
+        lineChart.setTitle("Stock Monitoring, 2010");
+                          
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("Portfolio 1");
         
-                lineChart.setTitle("Number of Deaths per Region in the past 5 years");
-                XYChart.Series series1 = new XYChart.Series();
-                series1.setName("Asia (UN)");
-                series1.getData().add(new XYChart.Data(1, 23));
-                series1.getData().add(new XYChart.Data(2, 14));
-                series1.getData().add(new XYChart.Data(3, 15));
-                series1.getData().add(new XYChart.Data(4, 24));
-                series1.getData().add(new XYChart.Data(5, 34));
-            }
-
-            if(PCselectedOceana = true){
-                final LineChart<Number,Number> lineChart = 
-                new LineChart<Number,Number>(xAxis,yAxis);
+        series1.getData().add(new XYChart.Data("Jan", 23));
+        series1.getData().add(new XYChart.Data("Feb", 14));
+        series1.getData().add(new XYChart.Data("Mar", 15));
+        series1.getData().add(new XYChart.Data("Apr", 24));
+        series1.getData().add(new XYChart.Data("May", 34));
+        series1.getData().add(new XYChart.Data("Jun", 36));
+        series1.getData().add(new XYChart.Data("Jul", 22));
+        series1.getData().add(new XYChart.Data("Aug", 45));
+        series1.getData().add(new XYChart.Data("Sep", 43));
+        series1.getData().add(new XYChart.Data("Oct", 17));
+        series1.getData().add(new XYChart.Data("Nov", 29));
+        series1.getData().add(new XYChart.Data("Dec", 25));
         
-                lineChart.setTitle("Number of Deaths per Region in the past 5 years");
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("Portfolio 2");
+        series2.getData().add(new XYChart.Data("Jan", 33));
+        series2.getData().add(new XYChart.Data("Feb", 34));
+        series2.getData().add(new XYChart.Data("Mar", 25));
+        series2.getData().add(new XYChart.Data("Apr", 44));
+        series2.getData().add(new XYChart.Data("May", 39));
+        series2.getData().add(new XYChart.Data("Jun", 16));
+        series2.getData().add(new XYChart.Data("Jul", 55));
+        series2.getData().add(new XYChart.Data("Aug", 54));
+        series2.getData().add(new XYChart.Data("Sep", 48));
+        series2.getData().add(new XYChart.Data("Oct", 27));
+        series2.getData().add(new XYChart.Data("Nov", 37));
+        series2.getData().add(new XYChart.Data("Dec", 29));
         
-                XYChart.Series series2 = new XYChart.Series();
-                series2.setName("My portfolio");
-                series2.getData().add(new XYChart.Data(1, 23));
-                series2.getData().add(new XYChart.Data(2, 14));
-                series2.getData().add(new XYChart.Data(3, 15));
-                series2.getData().add(new XYChart.Data(4, 24));
-                series2.getData().add(new XYChart.Data(5, 34));
-            }
-
-            if(PCselectedEurope = true){
-                final LineChart<Number,Number> lineChart = 
-                new LineChart<Number,Number>(xAxis,yAxis);
+        XYChart.Series series3 = new XYChart.Series();
+        series3.setName("Portfolio 3");
+        series3.getData().add(new XYChart.Data("Jan", 44));
+        series3.getData().add(new XYChart.Data("Feb", 35));
+        series3.getData().add(new XYChart.Data("Mar", 36));
+        series3.getData().add(new XYChart.Data("Apr", 33));
+        series3.getData().add(new XYChart.Data("May", 31));
+        series3.getData().add(new XYChart.Data("Jun", 26));
+        series3.getData().add(new XYChart.Data("Jul", 22));
+        series3.getData().add(new XYChart.Data("Aug", 25));
+        series3.getData().add(new XYChart.Data("Sep", 43));
+        series3.getData().add(new XYChart.Data("Oct", 44));
+        series3.getData().add(new XYChart.Data("Nov", 45));
+        series3.getData().add(new XYChart.Data("Dec", 44));
         
-                lineChart.setTitle("Number of Deaths per Region in the past 5 years");
+        Scene scene  = new Scene(lineChart,800,600);       
+        lineChart.getData().addAll(series1, series2, series3);
         
-                XYChart.Series series3 = new XYChart.Series();
-                series3.setName("My portfolio");
-                series3.getData().add(new XYChart.Data(1, 23));
-                series3.getData().add(new XYChart.Data(2, 14));
-                series3.getData().add(new XYChart.Data(3, 15));
-                series3.getData().add(new XYChart.Data(4, 24));
-                series3.getData().add(new XYChart.Data(5, 34));
-            }
-
-            if(PCselectedLatin = true){
-                final LineChart<Number,Number> lineChart = 
-                new LineChart<Number,Number>(xAxis,yAxis);
-        
-                lineChart.setTitle("Number of Deaths per Region in the past 5 years");
-        
-                XYChart.Series series = new XYChart.Series();
-                series.setName("Latin America (UN)");
-                series.getData().add(new XYChart.Data(1, 23));
-                series.getData().add(new XYChart.Data(2, 14));
-                series.getData().add(new XYChart.Data(3, 15));
-                series.getData().add(new XYChart.Data(4, 24));
-                series.getData().add(new XYChart.Data(5, 34));
-            }
-        }*/
-
-        //creating the chart
-        final LineChart<Number,Number> lineChart = 
-        new LineChart<Number,Number>(xAxis,yAxis);
-        
-        lineChart.setTitle("Number of Deaths per Region in the past 5 years");
-        
-        XYChart.Series series = new XYChart.Series();
-        series.setName("My portfolio");
-
-        //populating the series with data
-    
-        series.getData().add(new XYChart.Data(1, 23));
-        series.getData().add(new XYChart.Data(2, 14));
-        series.getData().add(new XYChart.Data(3, 15));
-        series.getData().add(new XYChart.Data(4, 24));
-        series.getData().add(new XYChart.Data(5, 34));
-        series.getData().add(new XYChart.Data(6, 36));
-        series.getData().add(new XYChart.Data(7, 22));
-        series.getData().add(new XYChart.Data(8, 45));
-        series.getData().add(new XYChart.Data(9, 43));
-        series.getData().add(new XYChart.Data(10, 17));
-        series.getData().add(new XYChart.Data(11, 29));
-        series.getData().add(new XYChart.Data(12, 25));
-
-        Scene scene  = new Scene(lineChart,800,600);
-        lineChart.getData().add(series);
        
         stage.setScene(scene);
         stage.show();
