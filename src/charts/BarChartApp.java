@@ -85,6 +85,7 @@ public class BarChartApp extends Application {
     barChart.getData().add(series2);
     barChart.getData().add(series3);
     barChart.setTitle("Number of deaths in each region by decades");
+    barChart.setAnimated(false);
     return barChart;
    
   }  
@@ -99,22 +100,24 @@ public class BarChartApp extends Application {
    * @param series12
    */
   private void handleOptions(CheckBox box1, CheckBox box2, CheckBox box3, XYChart.Series series12, XYChart.Series series22, XYChart.Series series32){
-    
+    barChart.getData().clear();
     if(box1.isSelected() == true){ 
+
       barChart.getData().add(series1);
       
   
-    } else if(box1.isSelected() == false){
+    }else if(box1.isSelected() == false){
+      
       barChart.getData().remove(series1);
-
     }
 
     if(box2.isSelected()) {
+      
         barChart.getData().add(series2);
 
-    }else if(box2.isSelected() == false){
+    }
+    else if(box2.isSelected() == false){
       barChart.getData().remove(series2);
- 
     }
 
     if(box3.isSelected()) {
@@ -122,8 +125,9 @@ public class BarChartApp extends Application {
     }
     else if (box3.isSelected() == false) {
       barChart.getData().remove(series3);
-    
+      
     }
+  
 
     return;
   }
