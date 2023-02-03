@@ -19,5 +19,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 
 public class Main {
-   
+   //variables for barchart
+private BarChart barChart;
+  private CategoryAxis xAxis;
+  private NumberAxis yAxis;
+  XYChart.Series series2 = new XYChart.Series();
+  XYChart.Series series3 = new XYChart.Series();
+  XYChart.Series series1 = new XYChart.Series();
 }
