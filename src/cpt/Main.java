@@ -12,12 +12,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -32,6 +32,18 @@ public class Main extends Application{
   XYChart.Series series2 = new XYChart.Series();
   XYChart.Series series3 = new XYChart.Series();
   XYChart.Series series1 = new XYChart.Series();
+
+  //variables for linechart
+  LineChart<String,Number> lineChart;
+    private CategoryAxis xAxisLine;
+    private NumberAxis yAxisLine;
+    XYChart.Series series2Line = new XYChart.Series();
+    XYChart.Series series3Line = new XYChart.Series();
+    XYChart.Series series1Line = new XYChart.Series();
+    XYChart.Series series6Line = new XYChart.Series();
+    XYChart.Series series5Line = new XYChart.Series();
+    XYChart.Series series4Line = new XYChart.Series();
+
 
   public Parent barChart(){
 
