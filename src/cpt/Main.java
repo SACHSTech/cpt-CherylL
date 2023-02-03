@@ -288,6 +288,7 @@ public class Main extends Application{
             
         //linechart tab
         Tab tab2 = new Tab("Chart #2: Line Chart");
+        tab2.setClosable(false);
         Button helpButton = new Button("Refresh");
         helpButton.setOnAction(e -> handleOptionsLine(box4,box5,box6, box7,box8,box9));
         VBox layout2 = new VBox(20);
@@ -302,17 +303,20 @@ public class Main extends Application{
         //display
         primaryStage.setTitle("Data Visualization CPT - Cheryl Lee"); 
         primaryStage.setScene(new Scene(root));
-        primaryStage.setWidth(1000);
-        primaryStage.setHeight(1000);
+        primaryStage.setWidth(800);
+        primaryStage.setHeight(800);
         primaryStage.show();
 
+        
     
         
     }
+
   /**
    * Java main for when running without JavaFX launcher
    */
   public static void main(String[] args) {
+        System.out.println("Hello! Welcome to the database");   
         launch(args);
 
     }
