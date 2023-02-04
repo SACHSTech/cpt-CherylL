@@ -4,8 +4,8 @@ This database includes the number of deaths per region within the last 3 decades
 
 [link to database](https://ourworldindata.org/life-expectancy)
 # Videos
-Content connections
+[Content connections](https://drive.google.com/file/d/1qvGoSgdfCqy9ovztGAC_g9HXrzK-jCGA/view?usp=sharing)
 
-Demo
+[Demo](https://drive.google.com/file/d/1gkz-1QMIVTJ4ynBqWDuKEGtjTJp0QsWF/view?usp=sharing)
 
 
