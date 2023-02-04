@@ -11,18 +11,12 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class LineGraph extends Application{
     
     LineChart<String,Number> lineChart;
-    private CategoryAxis xAxis;
-    private NumberAxis yAxis;
     XYChart.Series series2Line = new XYChart.Series();
     XYChart.Series series3Line = new XYChart.Series();
     XYChart.Series series1Line = new XYChart.Series();
@@ -32,10 +26,10 @@ public class LineGraph extends Application{
 
     public Parent LineChart(){
         
-        final CategoryAxis xAxis = new CategoryAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Years");
-        lineChart = new LineChart<String,Number>(xAxis,yAxis);
+        final CategoryAxis xAxisLine = new CategoryAxis();
+        final NumberAxis yAxisLine = new NumberAxis();
+        xAxisLine.setLabel("Years");
+        lineChart = new LineChart<String,Number>(xAxisLine,yAxisLine);
         
         lineChart.setTitle("Number of Deaths in the Past 5 Years in each Region");
                           
@@ -89,7 +83,9 @@ public class LineGraph extends Application{
     }
 
     private void handleOptionsLine(CheckBox box4, CheckBox box5, CheckBox box6, CheckBox box7, CheckBox box8, CheckBox box9) {
+        
         lineChart.getData().clear();
+        
         if(box4.isSelected() == true){ 
             lineChart.getData().add(series1Line);
             

@@ -1,10 +1,5 @@
 package cpt;
 
-import java.util.*;
-import java.io.*;
-
-import java.util.Arrays;
-
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
@@ -29,7 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class Main extends Application{
-   //variables for barchart
+  //variables for barchart
   private BarChart barChart;
   private CategoryAxis xAxis;
   private NumberAxis yAxis;
@@ -49,7 +44,8 @@ public class Main extends Application{
 
   public Parent barChart(){
 
-        String[] country = {"Asia", "Africa", "Latin America", "Northern America and the Caribbean", "Oceana", "Europe"};
+        //bar graph set up
+        String[] country = {"Asia", "Africa", "Northern America", "Latin America and the Caribbean", "Oceana", "Europe"};
         FXCollections.<String>observableArrayList(country);
     
         yAxis = new NumberAxis();
@@ -97,13 +93,15 @@ public class Main extends Application{
     }  
     
   /**
-   * 
+   * filter data from the bar graph
    * @param box1 first checkbox for year 2000
    * @param box2 second checkbox for year 2010
    * @param box3 third checkbox for year 2020
    */
   private void handleOptions(CheckBox box1, CheckBox box2, CheckBox box3){
+        
         barChart.getData().clear();
+
         if(box1.isSelected() == true){ 
 
         barChart.getData().add(series1);
@@ -136,14 +134,17 @@ public class Main extends Application{
   
 
     public Parent LineChart(){
-            
+        
+        //line graph setup
         final CategoryAxis xAxisLine = new CategoryAxis();
         final NumberAxis yAxisLine = new NumberAxis();
-        xAxis.setLabel("Years");
+        xAxisLine.setLabel("Years");
+        yAxisLine.setLabel("Number of deaths");
         lineChart = new LineChart<String,Number>(xAxisLine,yAxisLine);
         
         lineChart.setTitle("Number of Deaths in the Past 5 Years in each Region");
-                        
+         
+        //series 1: Asia
         series1Line.setName("Asia");
         series1Line.getData().add(new XYChart.Data("2017", 21211975.55));
         series1Line.getData().add(new XYChart.Data("2018", 21049466.45));
@@ -151,6 +152,7 @@ public class Main extends Application{
         series1Line.getData().add(new XYChart.Data("2020", 20724448.25));
         series1Line.getData().add(new XYChart.Data("2021", 20561939.16));
 
+        //series 2: Africa
         series2Line.setName("Africa");
         series2Line.getData().add(new XYChart.Data("2017", 10694839));
         series2Line.getData().add(new XYChart.Data("2018", 10763424));
@@ -158,7 +160,7 @@ public class Main extends Application{
         series2Line.getData().add(new XYChart.Data("2020", 11390416));
         series2Line.getData().add(new XYChart.Data("2021", 12038022));
     
-        
+        //series 3: Oceana
         series3Line.setName("Oceana");
         series3Line.getData().add(new XYChart.Data("2017", 270970));
         series3Line.getData().add(new XYChart.Data("2018", 271264));
@@ -166,7 +168,7 @@ public class Main extends Application{
         series3Line.getData().add(new XYChart.Data("2020", 278401));
         series3Line.getData().add(new XYChart.Data("2021", 289468));
         
-
+        //series 4: Latin America and the Caribbean
         series4Line.setName("Latin America and the Caribbean");
         series4Line.getData().add(new XYChart.Data("2017", 4104061));
         series4Line.getData().add(new XYChart.Data("2018", 4190846));
@@ -174,6 +176,7 @@ public class Main extends Application{
         series4Line.getData().add(new XYChart.Data("2020", 5066101));
         series4Line.getData().add(new XYChart.Data("2021", 5534706));
 
+        //series 5: Northern America
         series5Line.setName("Northern America");
         series5Line.getData().add(new XYChart.Data("2017", 3049504));
         series5Line.getData().add(new XYChart.Data("2018", 3064891));
@@ -181,6 +184,7 @@ public class Main extends Application{
         series5Line.getData().add(new XYChart.Data("2020", 3544380));
         series5Line.getData().add(new XYChart.Data("2021", 3579160));
 
+        //series 6: Europe
         series6Line.setName("Europe");
         series6Line.getData().add(new XYChart.Data("2017", 8076159));
         series6Line.getData().add(new XYChart.Data("2018", 8112356));
@@ -188,12 +192,14 @@ public class Main extends Application{
         series6Line.getData().add(new XYChart.Data("2020", 9119281));
         series6Line.getData().add(new XYChart.Data("2021", 9656398));
 
+        //creating a line graph
         lineChart.getData().addAll(series1Line, series2Line, series3Line, series4Line, series5Line, series6Line);
         lineChart.setAnimated(false);
         return lineChart;
     }
+
     /**
-     * checkboxes for the line graph
+     * checkboxes fto filter the line graph
      * @param box4 check box for Asia
      * @param box5 check box for Africa
      * @param box6 check box for Oceana
@@ -251,7 +257,7 @@ public class Main extends Application{
         return;
     }
 
-    //display a tab
+    //display tabs
     @Override 
     public void start(Stage primaryStage) throws Exception {
         
@@ -295,21 +301,16 @@ public class Main extends Application{
         layout2.setPadding(new Insets(20,20,20,20));
         layout2.getChildren().addAll(box4, box5, box6, box7,box8,box9, LineChart(), helpButton);
         tab2.setContent(layout2);
-        tab2.setContent(layout2);
         tabPane.getTabs().add(tab2);
-        Scene scene2 = new Scene(layout1, 600, 600);
 
         root.setCenter(tabPane);
+
         //display
         primaryStage.setTitle("Data Visualization CPT - Cheryl Lee"); 
         primaryStage.setScene(new Scene(root));
         primaryStage.setWidth(800);
-        primaryStage.setHeight(800);
+        primaryStage.setHeight(650);
         primaryStage.show();
-
-        
-    
-        
     }
 
   /**

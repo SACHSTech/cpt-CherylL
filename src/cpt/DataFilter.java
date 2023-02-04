@@ -23,6 +23,10 @@ public class DataFilter {
         }
     }*/
 
+    /**
+     * collect data from csv file and converts it into an arraylist
+     * @throws IOException used to read files and bufferedreader
+     */
     public DataFilter() throws IOException{
         BufferedReader br = new BufferedReader(new FileReader("src/annual-number-of-deaths-by-world-region - annual-number-of-deaths-by-world-region.csv"));
         
@@ -40,20 +44,22 @@ public class DataFilter {
         br.close();
     }
 
-    public static ArrayList<String> regionName(){
+    //finds data relating to the region and generates a new list to hold the regions
+    public static ArrayList<String> regionName(String place){
 
         ArrayList <String> newList = new ArrayList <String>();
 
         for(int i = 0; i < dataList.size(); i++){
 
-            if(dataList.get(i).getRegion().equals(dataList.get(i-1).getRegion()) == false) newList.add(dataList.get(i).getRegion()); 
-                //newList.add(dataList.get(i).getRegion());
-             
+            if(dataList.get(i).getRegion() == place){
+                newList.add(dataList.get(i).getRegion());
+            } 
         }
 
         return newList;
     }
 
+    //finds data relating to the year and generates a new list to hold the years
     public ArrayList<CountryData> yearSel(int year){
 
         ArrayList <CountryData> theList = new ArrayList <CountryData>();
